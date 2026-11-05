@@ -1,10 +1,11 @@
-import { useSectionProgress } from '../hooks.js'
+import { useSectionProgress, img } from '../hooks.js'
 
 // Full-screen color wipes: each word's letters tilt/fade in one by one.
+// (pic + cap are only shown on mobile, see video.css)
 const words = [
-  { text: 'Community', bg: '#ff5a1f' },
-  { text: 'Productivity', bg: '#6c5cf7' },
-  { text: 'Flexibility', bg: '#000' },
+  { text: 'Community', bg: '#ff5a1f', pic: '1531973576160-7125cd663d86', cap: 'Meet people who work like you.' },
+  { text: 'Productivity', bg: '#6c5cf7', pic: '1497366811353-6870744d04b2', cap: 'Quiet, fast, ready from day one.' },
+  { text: 'Flexibility', bg: '#000', pic: '1524758631624-e2822e304c36', cap: 'Book by the day, stay as long as you like.' },
 ]
 
 export default function WordReel() {
@@ -24,6 +25,12 @@ export default function WordReel() {
             </h2>
           )
         })}
+        {words.map((w, wi) => (
+          <div key={w.text} className={`reel__pic ${wi === active ? 'reel__pic--on' : ''}`} aria-hidden="true">
+            <div className="reel__img" style={{ backgroundImage: `url(${img(w.pic, 900)})` }} />
+            <span className="reel__cap">{w.cap}</span>
+          </div>
+        ))}
       </div>
     </section>
   )

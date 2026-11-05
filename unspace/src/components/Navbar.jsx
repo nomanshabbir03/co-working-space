@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <header className="nav" style={{ translate: hidden ? '0 -160%' : '0 0' }}>
-      <a className="nav__logo" href="#">Unspace</a>
+      <a className="nav__logo" href="#">Urbanspace</a>
       <nav className="nav__links" aria-label="Main">
         {links.map(([l, href]) => (
           <a key={l} href={href}>{l}</a>
